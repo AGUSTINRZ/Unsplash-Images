@@ -5,7 +5,7 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 function UserAccount({ user }) {
 	return (
-		<section className="p-2 border-t border-zinc-300 mb-4">
+		<section className="p-2 border-t border-zinc-300">
 			<section className="flex items-start gap-2">
 				<img
 					src={user.profile_image.large}
@@ -33,7 +33,7 @@ function UserAccount({ user }) {
 			<section className="mt-2 text-start">
 				<p>{user.bio}</p>
 			</section>
-			<section className="flex gap-4 flex-wrap items-center justify-around md:justify-start text-lg mt-2">
+			<section className="flex gap-4 flex-wrap items-center justify-around md:justify-start text-lg pt-4 pb-1">
 				{user.social.instagram !== null && (
 					<a
 						href={`https://instagram.com/${user.social.instagram_username}`}
