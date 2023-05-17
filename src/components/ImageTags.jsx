@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 function ImageTags({ tags }) {
 	return (
 		<section className="p-2">
-      <h2 className="text-xl text-start font-semibold">Related tags</h2>
+      <h2 className="text-xl md:text-2xl text-start font-semibold">Related tags</h2>
 			<section className="flex gap-2 flex-wrap mt-1">
 				{tags.map((tag, index) => {
 					return (

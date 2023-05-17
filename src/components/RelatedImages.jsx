@@ -4,13 +4,18 @@ import ImageModal from "./ImageModal";
 import useTags from "../hooks/useTags";
 
 function RelatedImages({ tags }) {
-	const { data, isOpen, setIsOpen, imageId, setImageId } = useTags(tags);
+	const { data, isOpen, setIsOpen, imageId, setImageId } = useTags(
+		tags
+			.slice(0, 5)
+			.map((tag) => tag.title.replace(/\s/g, "-"))
+			.join("-")
+	);
 
 	return (
 		<section className="p-2">
-      <h2 className="text-xl text-start font-semibold">Related images</h2>
+			<h2 className="text-xl md:text-2xl text-start font-semibold">Related images</h2>
 			{data && (
-				<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-start gap-4 relative">
+				<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-start gap-4 relative mt-1">
 					{Array.from({ length: Math.ceil(data.length / 5) }, (_, i) => (
 						<div key={i} className="flex flex-col gap-4 h-min relative">
 							{data.slice(i * 5, (i + 1) * 5).map((image) => (

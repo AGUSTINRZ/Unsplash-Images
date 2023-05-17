@@ -34,7 +34,7 @@ function ImageModalHeader({data, setIsOpen, isLoading, handleImageLoad, profileI
 							className="max-h-[100vh] object-cover hidden"
 							onLoad={handleImageLoad}
 						/>
-						<section className="flex justify-center items-center min-h-[100vh]">
+						<section className="flex justify-center items-center min-h-[70vh] md:min-h-[100vh]">
 							<Spinner />
 						</section>
 					</>
@@ -48,25 +48,25 @@ function ImageModalHeader({data, setIsOpen, isLoading, handleImageLoad, profileI
 					/>
 				)}
 			</section>
-			<section className="flex items-center flex-wrap md:flex-nowrap gap-6 md:gap-10 text-start p-2">
+			<section className="flex items-start flex-wrap md:flex-nowrap gap-6 md:gap-10 text-start p-2">
 				<div className="w-full md:w-auto">
-					<h3 className="font-medium">Description</h3>
-					<p>{data.alt_description}</p>
+					<h3 className="font-medium text-lg">Description</h3>
+					{data.alt_description ? <p>{data.alt_description}</p> : <p>No description</p>}
 				</div>
 				<div className="w-full md:w-auto">
-					<h3 className="font-medium">Location</h3>
+					<h3 className="font-medium text-lg">Location</h3>
 					{data.location.name ? <p>{data.location.name}</p> : <p>Unknown</p>}
 				</div>
 				<div>
-					<h3 className="font-medium">Views</h3>
+					<h3 className="font-medium text-lg">Views</h3>
 					<span>{data.views}</span>
 				</div>
 				<div>
-					<h3 className="font-medium">Downloads</h3>
+					<h3 className="font-medium text-lg">Downloads</h3>
 					<p>{data.downloads}</p>
 				</div>
 				<div>
-					<h3 className="font-medium">Size</h3>
+					<h3 className="font-medium text-lg">Size</h3>
 					<p>
 						{data.height} x {data.width}
 					</p>
