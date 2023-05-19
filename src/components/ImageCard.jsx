@@ -9,7 +9,7 @@ function ImageCard({ data, setImageId, setIsOpen }) {
 
 	return (
 		<article className="relative group/item select-none hover:cursor-pointer" onClick={handleClick} title={data.alt_description}>
-			<img src={data.urls.regular} alt="" className="w-full" />
+			<img src={data.urls.small} alt="" className="w-full" />
 			<div className="flex gap-2 items-end absolute p-2 top-0 w-full h-full bg-black/30 opacity-0 group-hover/item:opacity-100 transition-opacity">
 				<div className="flex items-center gap-2">
 					<img

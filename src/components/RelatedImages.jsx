@@ -11,30 +11,32 @@ function RelatedImages({ tags }) {
 			.join("-")
 	);
 
-	return (
-		<section className="p-2">
-			<h2 className="text-xl md:text-2xl text-start font-semibold">Related images</h2>
-			{data && (
-				<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-start gap-4 relative mt-1">
-					{Array.from({ length: Math.ceil(data.length / 5) }, (_, i) => (
-						<div key={i} className="flex flex-col gap-4 h-min relative">
-							{data.slice(i * 5, (i + 1) * 5).map((image) => (
-								<ImageCard
-									data={image}
-									key={image.id}
-									setImageId={setImageId}
-									setIsOpen={setIsOpen}
-								/>
-							))}
-						</div>
-					))}
-					{isOpen && imageId ? (
-						<ImageModal setIsOpen={setIsOpen} imageId={imageId} />
-					) : null}
-				</section>
-			)}
-		</section>
-	);
+  return (
+    <section className="p-2">
+      <h2 className="text-xl md:text-2xl text-start font-semibold">Related images</h2>
+      {data && data.length > 0 ? (
+        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 items-start gap-2 relative mt-1">
+          {Array.from({ length: Math.ceil(data.length / 5) }, (_, i) => (
+            <div key={i} className="flex flex-col gap-4 h-min relative">
+              {data.slice(i * 5, (i + 1) * 5).map((image) => (
+                <ImageCard
+                  data={image}
+                  key={image.id}
+                  setImageId={setImageId}
+                  setIsOpen={setIsOpen}
+                />
+              ))}
+            </div>
+          ))}
+          {isOpen && imageId ? (
+            <ImageModal setIsOpen={setIsOpen} imageId={imageId} />
+          ) : null}
+        </section>
+      ) : (
+        <p className="text-start font-medium">No related images</p>
+      )}
+    </section>
+  );
 }
 
 RelatedImages.propTypes = {

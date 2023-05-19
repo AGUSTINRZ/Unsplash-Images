@@ -17,8 +17,7 @@ const useDataImage = (imageId) => {
 			);
 			const data = await response.json();
 			setData(data);
-			console.log(data);
-
+			
 			if (data && data.user && data.user.username) {
 				const response = await fetch(
 					`https://api.unsplash.com/users/${data.user.username}?client_id=${API_KEY}`

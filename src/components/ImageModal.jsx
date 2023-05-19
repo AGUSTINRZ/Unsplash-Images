@@ -11,7 +11,7 @@ function ImageModal({ setIsOpen, imageId }) {
 	return (
 		<>
 			{data && userData && (
-				<section className="fixed top-0 left-0 p-4 md:p-8 w-full h-full bg-black/30">
+				<section className="fixed top-0 left-0 p-4 md:p-8 w-full h-full bg-black/30 z-10">
 					<section className="bg-white h-full rounded relative overflow-y-scroll">
 						<ImageModalHeader data={data} setIsOpen={setIsOpen} isLoading={isLoading} handleImageLoad={handleImageLoad} profileImg={userData.profile_image.large}/>
 						<UserAccount user={userData}/>
